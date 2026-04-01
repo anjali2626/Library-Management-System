@@ -15,22 +15,12 @@ Web application for library operations: book management, user registration, and 
 - Reserve/ Borrow Books
 - Add/ Delete Books
 
-## Project Structure
-
-library-management-system/
-├── backend/
-│   ├── routes/
-│   ├── controllers/
-│   └── tables.sql
-├── frontend/
-│   ├── src/
-│   └── public/
-└── README.md
-
 ## Setup
-1. Clone repo.
-2. **Backend**: npm install, set .env, run MySQL scripts. , node server.js
-3. **Frontend**: npm install, npm start.
+1. Clone the repository: https://github.com/anjali2626/Library-Management-System                                                      
+2. Install dependencies: npm install
+3. Configure database connection in .env
+4. Run client_side: npm start
+5. Run backend: node server.js
 
 ## Usage
 - Librarians manages books & students.
