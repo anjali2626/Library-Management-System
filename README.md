@@ -18,9 +18,9 @@ Web application for library operations: book management, user registration, and 
 ## Project Structure
 
 library-management-system/
-├── backend/        # Node.js server
-├── frontend/       # React app
-└── README.md
+`├──` backend/        # Node.js server
+`├──` frontend/       # React app
+`└──` README.md
 
 ## Setup
 1. Clone repo.
