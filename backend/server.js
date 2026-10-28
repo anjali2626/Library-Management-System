@@ -42,9 +42,19 @@ const Librarian = sequelize.define("librarian", {
 });
 
 const Book = sequelize.define("book", {
-  name: DataTypes.STRING,
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   author: DataTypes.STRING,
   image: DataTypes.STRING
+}, {
+  indexes: [
+    {
+      name: "idx_book_name",
+      fields: ["name"]
+    }
+  ]
 });
 
 const ReservedBook = sequelize.define("reserved_book", {
@@ -134,8 +144,22 @@ app.post("/api/auth/login", async (req, res) => {
   });
 });
 
-
 app.get("/api/books", async (req, res) => {
+  const { search } = req.query;
+
+  if (search) {
+    const { Op } = require("sequelize");
+    const books = await Book.findAll({
+      where: {
+        name: {
+          [Op.like]: `${search}%` 
+        }
+      },
+      attributes: ["id", "name", "author"] 
+    });
+    return res.json(books);
+  }
+
   const books = await Book.findAll();
   res.json(books);
 });
